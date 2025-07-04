@@ -1,0 +1,19 @@
+workflows:
+  global_tech_workflow:
+    name: Global Tech Android App
+    environment:
+      vars:
+        PACKAGE_NAME: "com.global.tech"
+      node: 16.20.0
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Build project
+        script: |
+          npm run build
+      - name: Move files for APK (optional)
+        script: |
+          echo "Build complete"
+    artifacts:
+      - build/**/*
